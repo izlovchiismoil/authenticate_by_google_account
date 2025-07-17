@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    environment:
+      PORT: ${PORT}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_CALLBACK_URL: ${GOOGLE_CALLBACK_URL}
+      SESSION_SECRET: ${SESSION_SECRET}
+    ports:
+      - "${PORT}:${PORT}"
+    command: node server.js
